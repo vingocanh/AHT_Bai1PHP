@@ -1,0 +1,39 @@
+*{
+    box-sizing: inherit;
+}
+body{
+    width: 100%;
+    display: block;
+    
+}
+html{
+     /* font-size: 100%; */
+     line-height: 16px;
+     overflow-x: hidden;
+     box-sizing: border-box;
+     font-family: 'Montserrat', sans-serif;
+}
+
+/* Content */
+.type-content{
+    display: flex;
+    justify-content: center;
+}
+
+.newspage{
+    display: flex;
+    margin-bottom: 30px;
+  }
+  .newspage h3{
+    margin-top: 0px;
+    margin-left: 30px;
+  }
+  .newspage h3 a{
+    color: #000;
+  }
+  .newspage a img:hover{
+    opacity: 0.8;
+  }
+  .newspage h3 a:hover{
+    color: #28a745;
+  }

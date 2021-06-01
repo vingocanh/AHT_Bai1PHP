@@ -1,0 +1,68 @@
+*{
+    box-sizing: inherit;
+  }
+  body{
+    width: 100%;
+    display: block;
+    
+  }
+  html{
+     line-height: 16px;
+     overflow-x: hidden;
+     box-sizing: border-box;
+     font-family: 'Montserrat', sans-serif;
+  }
+
+  .add{
+    font-size: 18px;
+    background-color: #28a745;
+    color: #fff;
+    padding: 5px 12px;
+  }
+  .edit{
+    font-size: 18px;
+    background-color: #28a745;
+    color: #fff;
+    padding: 5px 12px;
+    margin: auto;
+  }
+  .delete{
+    margin: auto;
+    font-size: 18px;
+    background-color: #28a745;
+    color: #fff;
+    padding: 5px 12px;
+    }
+    .add:hover, .edit:hover, .delete:hover{
+      opacity: 0.7;
+      text-decoration: none;
+      color: #fff;
+    }
+  
+    .update{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .table-bordered tr th{
+      background-color: #ff9c00;
+      color: #fff;
+    }
+    .table{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+  
+  }
+  table{
+        margin-top: 15px;
+        width: 800px;
+  }
+  table td{
+    text-align: center;
+  }
+  table th{
+    padding: 5px 0px;
+  }
+  
