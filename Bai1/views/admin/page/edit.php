@@ -21,6 +21,9 @@
     <div class="container-fluid">
     <h3 class= "">Sửa thành viên</h3>
         <form method="POST" action="">
+        <div class="form-group">
+                <input type="text" class="form-control" name = "id" value="<?php echo $result['id']?>"  style="display: none">
+            </div>
             <div class="form-group">
                 <label for="fullName">Họ Tên</label>
                 <input type="text" class="form-control" name = "name" value="<?php echo $result['name']?>">

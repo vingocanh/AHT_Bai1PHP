@@ -4,7 +4,6 @@
 body{
     width: 100%;
     display: block;
-    background-color: #f6f5f7;
     
 }
 html{
@@ -24,9 +23,6 @@ html{
 .content-home{
   width: 55%;
   max-width: 100%;
-  /* background-color: #ffffff;
-        padding: 10px 15px 10px 0px;
-        box-shadow: 0 14px 28px rgb(0 0 0 / 15%); */
 }
 .title-tintuc{
   background-color: #222;
@@ -96,3 +92,24 @@ html{
     align-items: center;
     justify-content: center;
   }
+  .update{
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+}
+.update .edit{
+        font-size: 18px;
+        background-color: #28a745;
+        color: #fff;
+        padding: 5px 12px;
+        margin-left: 600px;
+
+}
+.update .delete{
+    font-size: 18px;
+    background-color: #28a745;
+    color: #fff;
+    padding: 5px 12px;
+    margin-left: 10px;
+
+}

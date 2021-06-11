@@ -9,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+   
     <!-- ICon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
@@ -37,13 +38,24 @@
                                         </div>';
                                 }
                             ?>
+                            <!-- <div class="content-slide_left">
+                                                <h3>'.$dataa['name'].'</h3>
+                                            </div> -->
                            
-                        </div>
-                  
+                        </div> 
                 </div>
                 
                 <div class="title-tintuc">
-                    <h3>TIN TỨC TỔNG HỢP </h3>
+                    <?php
+                    $id = $_GET['id'];
+                      foreach($tam as $data){
+                        if($data['id'] == $id){
+                            echo '<h3>TIN TỨC '.$data['name'].'</h3>';
+                            break;
+                         }
+                    }
+                    ?>
+                    
                 </div>
                 <div class="tin-tuc">
                     <div>

@@ -2,7 +2,7 @@
 // session_start();
 
     include_once 'models/UserModel.php';
-    include_once 'models/CustomerModel.php';
+    include_once 'models/AminModel.php';
     include_once 'models/CategoryModel.php';
     include_once 'models/ProductModel.php';
     include_once 'config/config.php';
@@ -50,27 +50,54 @@
                     break;
 
                 case 'contact':
-                    $tam = $this->getName();
+                    $tam = $this->getNameGroup();
                     require_once 'views/client/page/contact.php';
                     break;
 
                 case 'home':
-                    $tam = $this->getName();
+                    $tam = $this->getNameGroup();
+                    $list = $this->getNewsletterList();
+                    $list2 = $this->getListIMGCategory();
                     require_once 'views/client/page/home.php';
                     break;
                     
                 case 'introduce':
-                    $tam = $this->getName();
+                    $tam = $this->getNameGroup();
                     require_once 'views/client/page/introduce.php';
                     break;
-
-                case 'out':
-                    $this->logOut();
+                case 'XÃ HỘI':
+                    $tam = $this->getNameGroup();
+                    $list = $this->getListByGroupName();
+                    $list2 = $this->getListByGroupName();
+                    require_once 'views/client/page/society.php';
                     break;
 
+                case 'ĐỒ ĐIỆN TỬ':
+                    $tam = $this->getNameGroup();
+                    $list = $this->getListByGroupName();
+                    $list2 = $this->getListByGroupName();
+                    require_once 'views/client/page/electronic.php';
+                    break;
+                case 'THỜI TRANG': 
+                    $tam = $this->getNameGroup();
+                    $list = $this->getListByGroupName();
+                    $list2 = $this->getListByGroupName();
+                    require_once 'views/client/page/fashion.php';
+                    break;
+                case 'out':
+                    $this->logOut();
+                    header('Location: /php/AHT/Bai1/index.php?action=login');
+                    break;
+                
+                case 'detail':
+                    $tam = $this->getNameGroup();
+                    $temp = $this->getDetailedNewsletter();
+                    require_once 'views/client/page/detail.php';
+                    break;
                 default: 
-                    $tam = $this->getName();
-                    $list = $this->getListProduct();
+                    $tam = $this->getNameGroup();
+                    $list = $this->getNewsletterList();
+                    $list2 = $this->getListIMGCategory();
                     require_once 'views/client/page/home.php';
                     break;
             }
@@ -95,7 +122,9 @@
                 }
     
                 if ($email != "" && $password != "") {
-                    $result = $this->dbUser->Login($email, $password);
+                    $result = $this->dbUser->getListById($_POST);
+                    // var_dump($result);
+                    // exit;
                     $check = $result->num_rows;
                     if ($check > 0) {
                         $data = $result->fetch_array(); 
@@ -144,23 +173,22 @@
     
                
                 if ($name != "" && $password !="" && $email!="" && $level!="") {
-                    $check = $this->dbUser->checkExists($email);
+                    //check email
+                    $check = $this->dbUser->getCustomer($email);
                     // var_dump($check);
                     // exit;
-                    if ($check->num_rows > 0) {
+                    if (($check->num_rows) > 0) {
                         $error['email'] = '* Email đã bị trùng';
                         echo "<script>alert('Email đã bị trùng')</script>";
                     } else {
-                        $this->dbUser->singup($name, $email, $password, $level);
+                        $this->dbUser->add($_POST);
                         echo "<script>alert('Đăng ký thành công')</script>";
                         header('Location: ?action=login');
                       
-                     exit;
-                        
+                
                     }
                 }
             }
-            var_dump($error);
             return $error;
         }
 
@@ -176,17 +204,45 @@
             }
         }
 
-        public function getName(){
-            $datas= $this->dbCate->getCategory();
-            
+         // tên  nhóm tin
+         public function getNameGroup(){
+            $datas= $this->dbCate->getList();           
             return $datas;
         }
 
-        public function getListProduct(){
+         //danh sách tin tức
+         public function getNewsletterList(){
             $datas= $this->dbPro->getList();
             
             return $datas;
         }
-       
+
+         // danh sách tin tức theo id
+         public function getListIMGCategory(){
+            $datas= $this->dbPro->getListById(3);
+            
+            return $datas;
+        }
+
+        
+        // tin tức chi tiết theo từng id
+        public function getDetailedNewsletter(){
+            if(isset($_GET['id'])){
+                $id = $_GET['id'];
+                $datas= $this->dbPro->getCustomer($id);
+            }
+            return $datas;
+        }
+
+        // danh sách bản tin theo từng nhóm tin
+        public function getListByGroupName(){
+            if(isset($_GET['id'])){
+                $id = $_GET['id'];
+                $datas= $this->dbPro->getListById($id);
+            }
+                  
+            return $datas;
+        }
+  
     }
 ?>

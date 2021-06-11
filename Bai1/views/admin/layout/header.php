@@ -65,7 +65,7 @@
                                     <li><a class ="home" href="?action=home">TRANG CHỦ</a></li>
                                     <?php
                                          foreach($tams as $data){
-                                            echo '<li><a href="?id='.$data['id'].'">'.$data['name'].'</a></li>';
+                                            echo '<li><a href="?id='.$data['id'].'&action='.$data['name'].'">'.$data['name'].'</a></li>';
                                         }
                                     ?>
                                     <li><a href="?action=introduce">GIỚI THIỆU</a></li>

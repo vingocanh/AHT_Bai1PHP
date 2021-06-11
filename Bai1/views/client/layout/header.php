@@ -29,26 +29,26 @@
                                     <a href="#"><i class="pe-7s-cart"></i>Giỏ Hàng</a>
                                 </div> -->
                                 <div class="login">
-                                <!-- <?php     
+                                <?php     
                                     if(SessionUser::getSession("sessionUsers")){
                                         echo '<a href=""><i class="fas fa-sign-in-alt"></i> '.SessionUser::getSession("sessionUsers")['name'].' </a>';
                                     }else{
                                         echo '<a href="?action=login"><i class="fas fa-sign-in-alt"></i>Đăng nhập</a>';
                                     }
                                     
-                                ?> -->
-                                    <a href="?action=login"><i class="fas fa-sign-in-alt"></i>Đăng Nhập</a>
+                                ?>
+                                    <!-- <a href="?action=login"><i class="fas fa-sign-in-alt"></i>Đăng Nhập</a> -->
                                 </div>
                                 <div class="signout">
-                                <!-- <?php
+                                <?php
                                     if(SessionUser::getSession("sessionUsers")){
                                         echo '<a href="?action=out"><i class="fas fa-sign-in-alt"></i> Logout </a>';
                                     }else{
                                         echo '<a href="?action=signup"><i class="fas fa-sign-out-alt"></i>Đăng Ký</a>';
                                     }
                                     
-                                ?> -->
-                                    <a href="?action=signup"><i class="fas fa-sign-out-alt"></i>Đăng Ký</a>
+                                ?>
+                                    <!-- <a href="?action=signup"><i class="fas fa-sign-out-alt"></i>Đăng Ký</a> -->
                                 </div>
                         </div>
                     </div>
@@ -61,11 +61,11 @@
                                     <li><a class ="home" href="?action=home">TRANG CHỦ</a></li>
                                     <?php
                                          foreach($tam as $data){
-                                            echo '<li><a href="?id='.$data['id'].'">'.$data['name'].'</a></li>';
+                                            echo '<li><a href="?id='.$data['id'].'&action='.$data['name'].'">'.$data['name'].'</a></li>';
                                         }
                                     ?>
                                     <li><a href="?action=introduce">GIỚI THIỆU</a></li>
-                                    <li><a href="?action=contact">LIÊN HỆ</a></li>
+                                    <li><a class="lienHe" href="?action=contact">LIÊN HỆ</a></li>
                                     
                                 </ul>
                                             

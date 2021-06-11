@@ -1,6 +1,7 @@
 <?php
     require_once $_SERVER["DOCUMENT_ROOT"]."/".'php/AHT/Bai1/models/Database.php';
-    class CategoryDatabase extends Database{
+    require_once $_SERVER["DOCUMENT_ROOT"]."/".'php/AHT/Bai1/models/interface/interfaceOverview.php';
+    class CategoryDatabase extends Database implements interfaceOverview{
       
         private $db ;
         // private $result = NULL;
@@ -9,7 +10,7 @@
             $this->db = new Database();
         }
         
-        public function getCategory(){
+        public function getList(){
             $sql = "SELECT * FROM category";
             $this->db->excetue($sql);
 
@@ -17,6 +18,12 @@
             return $data;
            
         }
+        public function getListById($id){}
+
+        public function getCustomer($id){}
+        public function add($values){}
+        public function edit($values){}
+        public function delete($id){}
 
     }
 ?>

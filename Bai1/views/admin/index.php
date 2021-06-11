@@ -1,6 +1,6 @@
 <?php
 
-require_once($_SERVER["DOCUMENT_ROOT"]."/"."php/AHT/Bai1/controllers/CustomerController.php");
-$controller = new CustomerController();
-$controller->Customer();
+require_once($_SERVER["DOCUMENT_ROOT"]."/"."php/AHT/Bai1/controllers/AdminControrller.php");
+$controller = new AdminController();
+$controller->Admin();
 ?>
